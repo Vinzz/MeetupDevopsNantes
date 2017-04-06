@@ -17,6 +17,8 @@ namespace FFServices
             string weatherUrl = string.Format(Settings.Default.weatherquery, cityName);
             string json = JsonRequest.GetRestResponse(weatherUrl);
 
+            WeatherBO o = JsonConvert.DeserializeObject<WeatherBO>(json);
+
             return "toto";
         }
     }
