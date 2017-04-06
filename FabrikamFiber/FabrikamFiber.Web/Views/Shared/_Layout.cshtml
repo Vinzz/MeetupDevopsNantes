@@ -31,11 +31,7 @@
 
             <nav>
                 <ul>
-                    <li>@Html.ActionLink("Dashboard", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Tickets", "Index", "ServiceTickets")</li>
-                    <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
-                    <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
-                    <li>@Html.ActionLink("Reports", "Index", "Reports")</li>
+                    
                 </ul>
             </nav>
 
@@ -69,7 +65,7 @@
     </div>
     
     <p id="copyright">
-        &copy; 2013 Fabrikam Fiber
+        <h3>Built date: @ViewBag.BuildDate</h3>
     </p>
 </body>
 </html>

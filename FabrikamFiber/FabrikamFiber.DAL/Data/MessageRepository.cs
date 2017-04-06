@@ -7,6 +7,7 @@ namespace FabrikamFiber.DAL.Data
     using System.Linq.Expressions;
 
     using FabrikamFiber.DAL.Models;
+    using System.Collections.Generic;
 
     public interface IMessageRepository
     {
@@ -29,19 +30,14 @@ namespace FabrikamFiber.DAL.Data
 
         public IQueryable<Message> All
         {
-            get { return this.context.Messages; }
+            get { return new List<Message>().AsQueryable(); }
         }
 
         public IQueryable<Message> AllIncluding(params Expression<Func<Message, object>>[] includeProperties)
         {
-            IQueryable<Message> query = this.context.Messages;
+       
 
-            foreach (var includeProperty in includeProperties)
-            {
-                query = query.Include(includeProperty);
-            }
-
-            return query;
+            return new List<Message>().AsQueryable(); ;
         }
 
         public Message Find(int id)

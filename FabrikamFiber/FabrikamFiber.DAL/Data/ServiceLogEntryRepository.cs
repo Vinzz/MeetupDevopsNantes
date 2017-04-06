@@ -7,6 +7,7 @@ namespace FabrikamFiber.DAL.Data
     using System.Linq.Expressions;
 
     using FabrikamFiber.DAL.Models;
+    using System.Collections.Generic;
 
     public interface IServiceLogEntryRepository
     {
@@ -29,19 +30,12 @@ namespace FabrikamFiber.DAL.Data
 
         public IQueryable<ServiceLogEntry> All
         {
-            get { return this.context.ServiceLogEntries; }
+            get { return new List<ServiceLogEntry>().AsQueryable(); }
         }
 
         public IQueryable<ServiceLogEntry> AllIncluding(params Expression<Func<ServiceLogEntry, object>>[] includeProperties)
         {
-            IQueryable<ServiceLogEntry> query = this.context.ServiceLogEntries;
-
-            foreach (var includeProperty in includeProperties)
-            {
-                query = query.Include(includeProperty);
-            }
-
-            return query;
+            return new List<ServiceLogEntry>().AsQueryable(); ;
         }
 
         public ServiceLogEntry Find(int id)
