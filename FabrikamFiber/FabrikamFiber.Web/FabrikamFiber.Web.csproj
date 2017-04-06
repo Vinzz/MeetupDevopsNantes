@@ -333,6 +333,10 @@
       <Project>{64058BA2-30B8-4A35-8D4C-CB4F6D6D7442}</Project>
       <Name>FabrikamFiber.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FFServices\FFServices.csproj">
+      <Project>{17e9bce0-c0d8-4909-8b84-25039a2ef737}</Project>
+      <Name>FFServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

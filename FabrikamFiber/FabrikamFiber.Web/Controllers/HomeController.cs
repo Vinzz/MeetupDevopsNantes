@@ -9,21 +9,17 @@
     using System;
     using System.Reflection;
     using System.IO;
+    using FFServices;
 
     public class HomeController : Controller
     {
-        private readonly IServiceTicketRepository serviceTickets;
-        private readonly IMessageRepository messageRepository;
-        private readonly IAlertRepository alertRepository;
-        private readonly IScheduleItemRepository scheduleItemRepository;
+        private readonly IServiceWeather serviceWeather;
+      
 
         public HomeController(
-                              IServiceTicketRepository serviceTickets,
-                              IMessageRepository messageRepository,
-                              IAlertRepository alertRepository,
-                              IScheduleItemRepository scheduleItemRepository)
+                              IServiceWeather serviceWeather)
         {
-         
+            this.serviceWeather = serviceWeather;
         }
 
         public ActionResult Index()
@@ -38,9 +34,14 @@
 
             ViewBag.BuildDate = RetrieveLinkerTimestamp();
             ViewBag.Version = GetAssemblyVersion();
-            ViewBag.Meteo = "Sunny";
+            ViewBag.Meteo = serviceWeather.GetWeather("Nantes");
              
             return View(viewModel);
+        }
+
+        private dynamic GetWeather()
+        {
+            throw new NotImplementedException();
         }
 
         private dynamic GetAssemblyVersion()
