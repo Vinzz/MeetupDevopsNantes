@@ -30,7 +30,7 @@ namespace FabrikamFiber.DAL.Data
 
         public IQueryable<Customer> All
         {
-            get { new List<Customer>().AsQueryable(); }
+            get { return new List<Customer>().AsQueryable(); }
         }
 
         public IQueryable<Customer> AllIncluding(params Expression<Func<Customer, object>>[] includeProperties)
