@@ -1,15 +1,22 @@
-﻿using System;
+﻿using FFServices.Properties;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using FFService;
 
 namespace FFServices
 {
     public class ServiceWeather : IServiceWeather
     {
-        public string GetWeather(string cityName)
+        string IServiceWeather.GetWeather(string cityName)
         {
+            string weatherUrl = string.Format(Settings.Default.weatherquery, cityName);
+            string json = JsonRequest.GetRestResponse(weatherUrl);
+
             return "toto";
         }
     }
