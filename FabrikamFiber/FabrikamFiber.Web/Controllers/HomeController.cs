@@ -37,8 +37,14 @@
             };
 
             ViewBag.BuildDate = RetrieveLinkerTimestamp();
+            ViewBag.Version = GetAssemblyVersion();
 
             return View(viewModel);
+        }
+
+        private dynamic GetAssemblyVersion()
+        {
+            return Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
         /// <summary>
