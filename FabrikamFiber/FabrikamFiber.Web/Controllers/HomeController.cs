@@ -38,7 +38,8 @@
 
             ViewBag.BuildDate = RetrieveLinkerTimestamp();
             ViewBag.Version = GetAssemblyVersion();
-
+            ViewBag.Meteo = "Sunny";
+             
             return View(viewModel);
         }
 
