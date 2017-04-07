@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="weatherquery" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://api.openweathermap.org/data/2.5/weather?q={0},fr&amp;appid=bca2e369c8c2340dd7faddc7a1716ea2&amp;lang=fr</Value>
+      <Value Profile="(Default)">http://api.openweathermap.org/data/2.5/weather?q={0},fr&amp;appid=bca2e369c8c2340dd7faddc7a1716ea2</Value>
     </Setting>
   </Settings>
 </SettingsFile>

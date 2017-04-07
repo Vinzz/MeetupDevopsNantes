@@ -26,7 +26,7 @@ namespace FFServices.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://api.openweathermap.org/data/2.5/weather?q={0},fr&appid=bca2e369c8c2340dd7f" +
-            "addc7a1716ea2&lang=fr")]
+            "addc7a1716ea2")]
         public string weatherquery {
             get {
                 return ((string)(this["weatherquery"]));

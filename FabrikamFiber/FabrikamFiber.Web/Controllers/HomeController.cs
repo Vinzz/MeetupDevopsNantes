@@ -32,9 +32,11 @@
                 Tickets = new List<ServiceTicket>(),
             };
 
+            string city = "Nantes";
             ViewBag.BuildDate = RetrieveLinkerTimestamp();
             ViewBag.Version = GetAssemblyVersion();
-            ViewBag.Meteo = serviceWeather.GetWeather("Nantes");
+            ViewBag.City = city;
+            ViewBag.Meteo = serviceWeather.GetWeather(city);
              
             return View(viewModel);
         }
