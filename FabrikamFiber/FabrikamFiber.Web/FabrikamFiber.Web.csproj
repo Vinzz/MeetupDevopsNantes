@@ -18,6 +18,8 @@
     <SccProvider>SAK</SccProvider>
     <TargetFrameworkProfile />
     <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -290,6 +292,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <None Include="CodeTemplates\Scaffolders\MvcScaffolding.Controller\ControllerWithRepository.cs.t4" />
+    <None Include="Properties\PublishProfiles\devopsnantesmeetup - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\devopsnantesmeetup - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Package.pubxml" />
     <None Include="readme.txt" />
     <Content Include="Views\Customers\Create.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
@@ -327,6 +332,10 @@
     <ProjectReference Include="..\FabrikamFiber.DAL\FabrikamFiber.DAL.csproj">
       <Project>{64058BA2-30B8-4A35-8D4C-CB4F6D6D7442}</Project>
       <Name>FabrikamFiber.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FFServices\FFServices.csproj">
+      <Project>{17e9bce0-c0d8-4909-8b84-25039a2ef737}</Project>
+      <Name>FFServices</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -367,4 +376,11 @@
     <PreBuildEvent>
     </PreBuildEvent>
   </PropertyGroup>
+  <Import Project="..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets" Condition="Exists('..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets'))" />
+  </Target>
 </Project>

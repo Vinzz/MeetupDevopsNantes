@@ -7,6 +7,7 @@ namespace FabrikamFiber.DAL.Data
     using System.Linq.Expressions;
 
     using FabrikamFiber.DAL.Models;
+    using System.Collections.Generic;
 
     public interface IScheduleItemRepository
     {
@@ -29,18 +30,13 @@ namespace FabrikamFiber.DAL.Data
 
         public IQueryable<ScheduleItem> All
         {
-            get { return this.context.ScheduleItems; }
+            get { return new List<ScheduleItem>().AsQueryable(); }
         }
 
         public IQueryable<ScheduleItem> AllIncluding(params Expression<Func<ScheduleItem, object>>[] includeProperties)
         {
-            IQueryable<ScheduleItem> query = this.context.ScheduleItems;
-            foreach (var includeProperty in includeProperties)
-            {
-                query = query.Include(includeProperty);
-            }
-
-            return query;
+          
+            return new List<ScheduleItem>().AsQueryable(); ;
         }
 
         public ScheduleItem Find(int id)

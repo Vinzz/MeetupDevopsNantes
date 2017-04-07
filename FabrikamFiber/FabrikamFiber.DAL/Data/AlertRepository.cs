@@ -7,6 +7,7 @@ namespace FabrikamFiber.DAL.Data
     using System.Linq.Expressions;
 
     using FabrikamFiber.DAL.Models;
+    using System.Collections.Generic;
 
     public interface IAlertRepository
     {
@@ -29,19 +30,12 @@ namespace FabrikamFiber.DAL.Data
 
         public IQueryable<Alert> All
         {
-            get { return this.context.Alerts; }
+            get { return new List<Alert>().AsQueryable(); }
         }
 
         public IQueryable<Alert> AllIncluding(params Expression<Func<Alert, object>>[] includeProperties)
         {
-            IQueryable<Alert> query = this.context.Alerts;
-
-            foreach (var includeProperty in includeProperties)
-            {
-                query = query.Include(includeProperty);
-            }
-
-            return query;
+            return new List<Alert>().AsQueryable();
         }
 
         public Alert Find(int id)

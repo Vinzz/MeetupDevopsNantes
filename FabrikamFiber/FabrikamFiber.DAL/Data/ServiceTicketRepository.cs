@@ -7,6 +7,7 @@ namespace FabrikamFiber.DAL.Data
     using System.Linq.Expressions;
 
     using FabrikamFiber.DAL.Models;
+    using System.Collections.Generic;
 
     public interface IServiceTicketRepository
     {
@@ -33,19 +34,12 @@ namespace FabrikamFiber.DAL.Data
 
         public IQueryable<ServiceTicket> All
         {
-            get { return this.context.ServiceTickets; }
+            get { return new List<ServiceTicket>().AsQueryable(); }
         }
 
         public IQueryable<ServiceTicket> AllIncluding(params Expression<Func<ServiceTicket, object>>[] includeProperties)
         {
-            IQueryable<ServiceTicket> query = this.context.ServiceTickets;
-
-            foreach (var includeProperty in includeProperties)
-            {
-                query = query.Include(includeProperty);
-            }
-
-            return query;
+            return new List<ServiceTicket>().AsQueryable(); ;
         }
 
         public ServiceTicket Find(int id)

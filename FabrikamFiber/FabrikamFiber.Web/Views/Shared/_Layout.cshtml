@@ -26,16 +26,12 @@
          
             <hgroup> 
               <h1><img src="@Url.Content("~/Content/images/logo_text.png")" alt="Fabrikam Fiber" /></h1> 
-              <h2>Support</h2> 
+              <h2>Dev</h2> 
             </hgroup> 
 
             <nav>
                 <ul>
-                    <li>@Html.ActionLink("Dashboard", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Tickets", "Index", "ServiceTickets")</li>
-                    <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
-                    <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
-                    <li>@Html.ActionLink("Reports", "Index", "Reports")</li>
+                    
                 </ul>
             </nav>
 
@@ -69,7 +65,8 @@
     </div>
     
     <p id="copyright">
-        &copy; 2013 Fabrikam Fiber
+        <h1>Version: @ViewBag.Version</h1>
+        <h1>Built date: @ViewBag.BuildDate</h1>
     </p>
 </body>
 </html>

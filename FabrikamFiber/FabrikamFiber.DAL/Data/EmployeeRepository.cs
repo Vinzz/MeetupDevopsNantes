@@ -7,6 +7,7 @@ namespace FabrikamFiber.DAL.Data
     using System.Linq.Expressions;
 
     using FabrikamFiber.DAL.Models;
+    using System.Collections.Generic;
 
     public interface IEmployeeRepository
     {
@@ -31,18 +32,14 @@ namespace FabrikamFiber.DAL.Data
 
         public IQueryable<Employee> All
         {
-            get { return this.context.Employees; }
+            get { return new List<Employee>().AsQueryable(); }
         }
 
         public IQueryable<Employee> AllIncluding(params Expression<Func<Employee, object>>[] includeProperties)
         {
-            IQueryable<Employee> query = this.context.Employees;
-            foreach (var includeProperty in includeProperties)
-            {
-                query = query.Include(includeProperty);
-            }
 
-            return query;
+
+            return new List<Employee>().AsQueryable(); ;
         }
 
         public Employee Find(int id)
