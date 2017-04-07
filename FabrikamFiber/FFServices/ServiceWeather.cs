@@ -12,7 +12,7 @@ namespace FFServices
 {
     public class ServiceWeather : IServiceWeather
     {
-        string IServiceWeather.GetWeather(string cityName)
+        public string IServiceWeather.GetWeather(string cityName)
         {
             string weatherUrl = string.Format(Settings.Default.weatherquery, cityName);
             string json = JsonRequest.GetRestResponse(weatherUrl);
