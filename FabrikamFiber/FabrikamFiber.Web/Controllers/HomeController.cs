@@ -45,7 +45,7 @@
         [HttpPost]
         public ActionResult ComputeWeather(string input)
         {
-            if (ModelState.IsValid && !string.IsNullOrEmpty(input))
+            if (ModelState.IsValid && !string.IsNullOrEmpty(input) && CityHelper.IsCityOK(input))
             {
                 viewModel.City = input;
                 viewModel.Meteo = serviceWeather.GetWeather(input);
