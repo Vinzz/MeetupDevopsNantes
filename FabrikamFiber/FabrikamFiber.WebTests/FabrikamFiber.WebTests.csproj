@@ -51,10 +51,17 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Helpers\CityHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FabrikamFiber.Web\FabrikamFiber.Web.csproj">
+      <Project>{456D6BF0-21B0-4995-9D77-76FA13AD95DA}</Project>
+      <Name>FabrikamFiber.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
