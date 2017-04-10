@@ -4,8 +4,6 @@
     using System.Web.Mvc;
     using System.Web.Routing;
 
-    using FabrikamFiber.DAL.Data;
-
     public class MvcApplication : System.Web.HttpApplication
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -31,8 +29,6 @@
 
         protected void Application_Start()
         {
-            Database.SetInitializer<FabrikamFiberWebContext>(new FabrikamFiberDatabaseInitializer());
-
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);

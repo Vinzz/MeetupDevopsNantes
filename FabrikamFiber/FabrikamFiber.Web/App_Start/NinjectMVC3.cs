@@ -5,7 +5,6 @@ using Ninject.Web.Common;
 
 namespace FabrikamFiber.Web.App_Start
 {
-    using FabrikamFiber.DAL.Data;
     using FFServices;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
@@ -50,14 +49,6 @@ namespace FabrikamFiber.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IServiceWeather>().To<ServiceWeatherProxyMock>();
-            kernel.Bind<ICustomerRepository>().To<CustomerRepository>();
-            kernel.Bind<IEmployeeRepository>().To<EmployeeRepository>();
-            kernel.Bind<IServiceTicketRepository>().To<ServiceTicketRepository>();
-            kernel.Bind<IServiceLogEntryRepository>().To<ServiceLogEntryRepository>();
-
-            kernel.Bind<IAlertRepository>().To<AlertRepository>();
-            kernel.Bind<IMessageRepository>().To<MessageRepository>();
-            kernel.Bind<IScheduleItemRepository>().To<ScheduleItemRepository>();
         }
     }
 }

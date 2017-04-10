@@ -1,16 +1,12 @@
 ﻿namespace FabrikamFiber.Web.Controllers
 {
     using System.Web.Mvc;
-
-    using FabrikamFiber.DAL.Data;
-    using FabrikamFiber.Web.ViewModels;
-    using System.Collections.Generic;
-    using DAL.Models;
     using System;
     using System.Reflection;
     using System.IO;
     using FFServices;
     using Helpers;
+    using ViewModels;
 
     public class HomeController : Controller
     {
@@ -46,6 +42,11 @@
         [HttpPost]
         public ActionResult ComputeWeather(string input)
         {
+            if (viewModel == null)
+            {
+                viewModel = new DashboardViewModel();
+            }
+
             if (ModelState.IsValid && !string.IsNullOrEmpty(input) && CityHelper.IsCityOK(input))
             {
                 viewModel.City = input;
