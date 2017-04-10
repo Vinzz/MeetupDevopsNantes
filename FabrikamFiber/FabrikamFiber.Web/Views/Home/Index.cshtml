@@ -1,12 +1,21 @@
-﻿@model FabrikamFiber.Web.ViewModels.DashboardViewModel
-           
+﻿         
 @{
     ViewBag.Title = "Home Page";
 }
+
+@model FabrikamFiber.Web.ViewModels.DashboardViewModel
 
 <h1>Welcome to the Dev!</h1>
 
 
 <h2>Hi Dev!</h2>
 
-<h2>Today's weather at @ViewBag.City is @ViewBag.Meteo</h2>
+<p>
+    @using (Html.BeginForm("ComputeWeather", "Home", FormMethod.Post))
+            {
+        @Html.TextBox("input", @Model.City)
+        <input id="btnfacto" type="submit" value="GetWeather" />
+    }
+</p>
+
+<p id="weather"><h2>Today's weather at @Model.City is @Model.Meteo</h2></p>

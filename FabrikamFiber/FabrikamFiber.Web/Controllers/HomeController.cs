@@ -14,7 +14,7 @@
     public class HomeController : Controller
     {
         private readonly IServiceWeather serviceWeather;
-      
+        private DashboardViewModel viewModel = null;
 
         public HomeController(
                               IServiceWeather serviceWeather)
@@ -24,26 +24,33 @@
 
         public ActionResult Index()
         {
-            var viewModel = new DashboardViewModel
+            if (viewModel == null)
             {
-                ScheduleItems = new List<ScheduleItem>(),
-                Messages = new List<Message>(),
-                Alerts = new List<Alert>(),
-                Tickets = new List<ServiceTicket>(),
-            };
+                string initCity = "Nantes";
 
-            string city = "Nantes";
+                viewModel = new DashboardViewModel
+                {
+                    City = initCity,
+                    Meteo = serviceWeather.GetWeather(initCity)
+                };
+            }
+
+
             ViewBag.BuildDate = RetrieveLinkerTimestamp();
             ViewBag.Version = GetAssemblyVersion();
-            ViewBag.City = city;
-            ViewBag.Meteo = serviceWeather.GetWeather(city);
-             
+
             return View(viewModel);
         }
 
-        private dynamic GetWeather()
+        [HttpPost]
+        public ActionResult ComputeWeather(string input)
         {
-            throw new NotImplementedException();
+            if (ModelState.IsValid && !string.IsNullOrEmpty(input))
+            {
+                viewModel.City = input;
+                viewModel.Meteo = serviceWeather.GetWeather(input);
+            }
+            return View("Index", viewModel);
         }
 
         private dynamic GetAssemblyVersion()
