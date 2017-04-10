@@ -14,12 +14,28 @@ namespace FFServices
     {
         string IServiceWeather.GetWeather(string cityName)
         {
-            string weatherUrl = string.Format(Settings.Default.weatherquery, cityName);
-            string json = JsonRequest.GetRestResponse(weatherUrl);
+            if (isInFrance(cityName))
+            {
+                string weatherUrl = string.Format(Settings.Default.weatherquery, cityName);
+                string json = JsonRequest.GetRestResponse(weatherUrl);
 
-            WeatherBO o = JsonConvert.DeserializeObject<WeatherBO>(json);
+                WeatherBO o = JsonConvert.DeserializeObject<WeatherBO>(json);
 
-            return o.weather.First().description;
+                return o.weather.First().description;
+            }
+            else
+                return "no info for abroad cities";
+        }
+
+        public bool isInFrance(string cityName)
+        {
+           switch(cityName)
+            {
+                case "Nantes":
+                    return true;
+                default:
+                    return false;
+            }
         }
     }
 }

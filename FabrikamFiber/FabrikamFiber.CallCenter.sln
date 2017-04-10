@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFServices", "FFServices\FF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabrikamFiber.WebTests", "FabrikamFiber.WebTests\FabrikamFiber.WebTests.csproj", "{2F1DE004-12B9-45D3-919D-1198C5B80EB5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFServicesTests", "FFServicesTests\FFServicesTests.csproj", "{B8E98957-3890-4480-B058-3DFBCBD4EB49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{2F1DE004-12B9-45D3-919D-1198C5B80EB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F1DE004-12B9-45D3-919D-1198C5B80EB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F1DE004-12B9-45D3-919D-1198C5B80EB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E98957-3890-4480-B058-3DFBCBD4EB49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E98957-3890-4480-B058-3DFBCBD4EB49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E98957-3890-4480-B058-3DFBCBD4EB49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E98957-3890-4480-B058-3DFBCBD4EB49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
