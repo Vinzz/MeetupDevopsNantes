@@ -12,5 +12,10 @@ namespace FFServices
         {
             return "Proxy!";
         }
+
+        public bool IsServiceUp()
+        {
+            return true;
+        }
     }
 }

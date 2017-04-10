@@ -9,5 +9,7 @@ namespace FFServices
     public interface IServiceWeather
     {
         string GetWeather(string cityName);
+
+        bool IsServiceUp();
     }
 }

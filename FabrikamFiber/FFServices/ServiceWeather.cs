@@ -37,5 +37,13 @@ namespace FFServices
                     return false;
             }
         }
+
+        public bool IsServiceUp()
+        {
+            string weatherUrl = string.Format(Settings.Default.weatherquery, "Paris");
+            string json = JsonRequest.GetRestResponse(weatherUrl);
+
+            return json != string.Empty;
+        }
     }
 }
