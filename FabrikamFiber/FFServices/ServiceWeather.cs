@@ -34,7 +34,7 @@ namespace FFServices
                 case "Nantes":
                     return true;
                 default:
-                    return false;
+                    return true;
             }
         }
 
