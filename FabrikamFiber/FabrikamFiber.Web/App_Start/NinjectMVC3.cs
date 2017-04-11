@@ -48,7 +48,7 @@ namespace FabrikamFiber.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IServiceWeather>().To<ServiceWeatherProxyMock>();
+            kernel.Bind<IServiceWeather>().To<ServiceWeather>();
         }
     }
 }
